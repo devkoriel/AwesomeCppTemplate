@@ -1,5 +1,7 @@
 # AwesomeCppTemplate
 
+> This project is in its infancy and I plan to continue to improve. It is designed to use C++17. I hope people be able to create the desired C++ project structure with Batch or Shell Script later. and also very welcome to the contribution.
+
 ## Suggestion of C++ programming environment
 
 I suggest using as much cross-platform open-source software as possible:
