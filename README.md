@@ -11,9 +11,9 @@ I suggest using as much cross-platform open-source software as possible:
   - Visual Studio Code
   - ⁠Qt Creator
 - static code analyzers:
-⁠  - clang-tidy
-⁠  - Cppcheck
-⁠  - Clazy
+  - clang-tidy
+  - Cppcheck
+  - Clazy
 - source code formatter: clang-format
 - documentation generator: Doxygen
 - package manager:
