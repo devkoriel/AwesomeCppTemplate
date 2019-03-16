@@ -37,10 +37,10 @@ IF(Boost_FOUND)
     # Example: TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${Boost_LIBRARIES} <OTHER CONAN LIBS or LIBS>)
 
     IF(APPLE)
-        # macOS's system libraries if you need.
-        FIND_LIBRARY(CoreFoundation CoreFoundation)
-        FIND_LIBRARY(IOKit IOKit)
-        TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CoreFoundation} ${IOKit}) 
+        # macOS only headers or libraries.
+        # FIND_LIBRARY(CoreFoundation CoreFoundation)
+        # FIND_LIBRARY(IOKit IOKit)
+        # TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CoreFoundation} ${IOKit}) 
     ELSEIF(WIN32)
         # Windows only headers or libraries.
     ELSEIF(UNIX)

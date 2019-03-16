@@ -32,10 +32,10 @@ ADD_EXECUTABLE(${OUTPUT_BINARY} ${SRC_FILES})
 TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CONAN_LIBS})
 
 IF(APPLE)
-    # macOS's system libraries.
-    FIND_LIBRARY(CoreFoundation CoreFoundation)
-    FIND_LIBRARY(IOKit IOKit)
-    TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CoreFoundation} ${IOKit}) 
+    # macOS only headers or libraries.
+    # FIND_LIBRARY(CoreFoundation CoreFoundation)
+    # FIND_LIBRARY(IOKit IOKit)
+    # TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CoreFoundation} ${IOKit}) 
 ELSEIF(WIN32)
     # Windows only headers or libraries.
 ELSEIF(UNIX)
