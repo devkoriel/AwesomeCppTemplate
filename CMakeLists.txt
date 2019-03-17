@@ -14,7 +14,11 @@ set(OUTPUT_BINARY "md5")
 set(SRC_FILES src/main.cpp)
 # Example: set(SRC_FILES <SOURCE FILES>)
 
-include(functions.cmake)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
+# find_package(Foo REQUIRED) # FOO_INCLUDE_DIR, FOO_LIBRARIES
+# find_package(Boo REQUIRED) # BOO_INCLUDE_DIR, BOO_LIBRARIES
+
+include(functions)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
