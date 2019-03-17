@@ -1,11 +1,15 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
 
-project("AwesomeCppTemplate")
-# Example: project("<PROJECT NAME>")
-
-# set(PROJECT_VERSION_MAJOR <MAJOR VERSION>)
-# set(PROJECT_VERSION_MINOR <MINOR VERSION>)
-# set(PROJECT_VERSION_PATCH <PATCH VERSION>)
+project("AwesomeCppTemplate"
+        VERSION 0.1.2
+        DESCRIPTION "Configure C++17 project files layout fast and simply."
+        HOMEPAGE_URL "https://github.com/devkoriel/AwesomeCppTemplate"
+        LANGUAGES CXX)
+# project(<PROJECT-NAME>
+#        [VERSION <major>[.<minor>[.<patch>[.<tweak>]]]]
+#        [DESCRIPTION <project-description-string>]
+#        [HOMEPAGE_URL <url-string>]
+#        [LANGUAGES <language-name>...])
 
 set(SRC_FILES src/main.cpp)
 # Example: set(SRC_FILES <SOURCE FILES>)
