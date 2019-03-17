@@ -26,9 +26,9 @@ CONAN_BASIC_SETUP()
 enable_cxx_compiler_flag_if_supported("-Wall")
 enable_cxx_compiler_flag_if_supported("-pedantic")
 
-INCLUDE_DIRECTORIES(include/libfoo)
-# Example: INCLUDE_DIRECTORIES(<HEADER DIRECTORIES>)
+# INCLUDE_DIRECTORIES(<PUBLIC HEADER DIRECTORIES>)
 ADD_EXECUTABLE(${OUTPUT_BINARY} ${SRC_FILES})
+TARGET_INCLUDE_DIRECTORIES(md5 PRIVATE include/libfoo)
 TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CONAN_LIBS})
 
 # OS specific instructions.
