@@ -7,8 +7,6 @@ cmake_minimum_required(VERSION 3.8)
 # set(PROJECT_VERSION_MINOR <MINOR VERSION>)
 # set(PROJECT_VERSION_PATCH <PATCH VERSION>)
 
-set(CMAKE_VERBOSE_MAKEFILE true)
-
 set(OUTPUT_BINARY "md5")
 # Example: set(OUTPUT_BINARY "<BINARY NAME>")
 set(SRC_FILES src/main.cpp)
