@@ -1,5 +1,7 @@
 # AwesomeCppTemplate
 
+The goal of this project is to make C++ version of Python [cookiecutter](https://github.com/audreyr/cookiecutter).
+
 > This project is in its infancy and I plan to continue to improve. It is designed to use C++17. I hope people be able to create the desired C++ project structure with Batch or Shell Script later. and also very welcome to the contribution.
 
 There a lot of useful opinions that I have to look at in Reddit thread for this project.
