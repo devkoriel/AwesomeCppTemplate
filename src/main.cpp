@@ -1,7 +1,7 @@
 #include "Poco/MD5Engine.h"
 #include "Poco/DigestStream.h"
 
-#include "dummy.hpp"
+#include "class.hpp"
 
 #include <iostream>
 

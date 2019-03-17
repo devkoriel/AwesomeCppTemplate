@@ -13,7 +13,7 @@ SET(CMAKE_VERBOSE_MAKEFILE true)
 
 SET(OUTPUT_BINARY "md5")
 # Example: SET(OUTPUT_BINARY "<BINARY NAME>")
-SET(SRC_FILES main.cpp)
+SET(SRC_FILES src/main.cpp)
 # Example: SET(SRC_FILES <SOURCE FILES>)
 
 SET(CMAKE_C_COMPILER clang)
@@ -26,7 +26,7 @@ CONAN_BASIC_SETUP()
 enable_cxx_compiler_flag_if_supported("-Wall")
 enable_cxx_compiler_flag_if_supported("-pedantic")
 
-INCLUDE_DIRECTORIES(headers)
+INCLUDE_DIRECTORIES(include/libfoo)
 # Example: INCLUDE_DIRECTORIES(<HEADER DIRECTORIES>)
 ADD_EXECUTABLE(${OUTPUT_BINARY} ${SRC_FILES})
 TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CONAN_LIBS})
