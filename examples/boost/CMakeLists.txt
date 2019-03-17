@@ -25,13 +25,12 @@ enable_cxx_compiler_flag_if_supported("-pedantic")
 
 # include_directories(<PUBLIC HEADER DIRECTORIES>)
 
-set(Boost_USE_STATIC_LIBS ON)
-set(Boost_USE_STATIC_RUNTIME ON)
+set(Boost_USE_STATIC_LIBS ON) # ON or OFF
+set(Boost_USE_STATIC_RUNTIME ON) # ON or OFF
 find_package(Boost 1.69.0 COMPONENTS filesystem)
 if(Boost_FOUND)
     add_executable(myls ${SRC_FILES})
     target_compile_features(myls PRIVATE cxx_std_17)
-    target_include_directories(myls PRIVATE include/libfoo)
     target_link_libraries(myls ${CONAN_LIBS})
 
     # OS specific instructions.
