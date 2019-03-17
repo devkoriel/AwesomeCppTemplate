@@ -1,54 +1,49 @@
-PROJECT("My ls")
-# Example: PROJECT("<PROJECT NAME>")
+cmake_minimum_required(VERSION 3.14)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+project("MyLS"
+        VERSION 0.1.2
+        DESCRIPTION "List files."
+        HOMEPAGE_URL "https://github.com/devkoriel/AwesomeCppTemplate"
+        LANGUAGES CXX)
+# project(<PROJECT-NAME>
+#        [VERSION <major>[.<minor>[.<patch>[.<tweak>]]]]
+#        [DESCRIPTION <project-description-string>]
+#        [HOMEPAGE_URL <url-string>]
+#        [LANGUAGES <language-name>...])
 
-# SET(PROJECT_VERSION_MAJOR <MAJOR VERSION>)
-# SET(PROJECT_VERSION_MINOR <MINOR VERSION>)
-# SET(PROJECT_VERSION_PATCH <PATCH VERSION>)
+set(SRC_FILES src/main.cpp)
+# Example: set(SRC_FILES <SOURCE FILES>)
 
-SET(CMAKE_CXX_STANDARD 17)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
-SET(CMAKE_VERBOSE_MAKEFILE true)
-
-SET(OUTPUT_BINARY "myls")
-# Example: SET(OUTPUT_BINARY "<BINARY NAME>")
-SET(SRC_FILES src/main.cpp)
-# Example: SET(SRC_FILES <SOURCE FILES>)
-
-SET(CMAKE_C_COMPILER clang)
-SET(CMAKE_CXX_COMPILER clang++)
-
-INCLUDE(functions.cmake)
-INCLUDE(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-CONAN_BASIC_SETUP()
+include(functions)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 enable_cxx_compiler_flag_if_supported("-Wall")
 enable_cxx_compiler_flag_if_supported("-pedantic")
 
-SET(Boost_USE_STATIC_LIBS ON)
-SET(Boost_USE_STATIC_RUNTIME ON)
-FIND_PACKAGE(Boost 1.69.0 COMPONENTS filesystem regex system thread)
-IF(Boost_FOUND)
-    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
-    # Example: INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} <OTHER HEADER DIRECTORIES>)
-    ADD_EXECUTABLE(${OUTPUT_BINARY} ${SRC_FILES})
-    TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${Boost_LIBRARIES})
-    # Example: TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${Boost_LIBRARIES} <OTHER CONAN LIBS or LIBS>)
+# include_directories(<PUBLIC HEADER DIRECTORIES>)
 
-    IF(APPLE)
-        # macOS only headers or libraries.
-        # FIND_LIBRARY(CoreFoundation CoreFoundation)
-        # FIND_LIBRARY(IOKit IOKit)
-        # TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CoreFoundation} ${IOKit}) 
-    ELSEIF(WIN32)
-        # Windows only headers or libraries.
-    ELSEIF(UNIX)
-        # UNIX OS only headers or libraries.
-        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    ELSE()
-        MESSAGE(FATAL_ERROR "Your operating system is not compatible. CMake will exit.")
-    ENDIF()
-ELSE()
-    MESSAGE(FATAL_ERROR "Boost Not Found.")
-ENDIF()
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_RUNTIME ON)
+find_package(Boost 1.69.0 COMPONENTS filesystem)
+if(Boost_FOUND)
+    add_executable(myls ${SRC_FILES})
+    target_compile_features(myls PRIVATE cxx_std_17)
+    target_include_directories(myls PRIVATE include/libfoo)
+    target_link_libraries(myls ${CONAN_LIBS})
+
+    # OS specific instructions.
+    if(APPLE)
+    elseif(WIN32)
+        # Windows developer environment specific instructions.
+        if(MINGW)
+        elseif(MSYS)
+        elseif(CYGWIN)
+        endif()
+    elseif(UNIX)
+    else()
+    endif()
+endif()
+
