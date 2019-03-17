@@ -1,7 +1,7 @@
+cmake_minimum_required(VERSION 3.8)
+
 project("AwesomeCppTemplate")
 # Example: project("<PROJECT NAME>")
-
-cmake_minimum_required(VERSION 3.8)
 
 # set(PROJECT_VERSION_MAJOR <MAJOR VERSION>)
 # set(PROJECT_VERSION_MINOR <MINOR VERSION>)
@@ -22,10 +22,10 @@ enable_cxx_compiler_flag_if_supported("-Wall")
 enable_cxx_compiler_flag_if_supported("-pedantic")
 
 # include_directories(<PUBLIC HEADER DIRECTORIES>)
-add_executable(${OUTPUT_BINARY} ${SRC_FILES})
-target_compile_features(${OUTPUT_BINARY} PRIVATE cxx_std_17)
+add_executable("md5" ${SRC_FILES})
+target_compile_features("md5" PRIVATE cxx_std_17)
 target_include_directories(md5 PRIVATE include/libfoo)
-target_link_libraries(${OUTPUT_BINARY} ${CONAN_LIBS})
+target_link_libraries("md5" ${CONAN_LIBS})
 
 # OS specific instructions.
 if(APPLE)
