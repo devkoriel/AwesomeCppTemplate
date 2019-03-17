@@ -45,6 +45,66 @@ $ sudo apt update && sudo apt upgrade -y
 
 2. Install Clang and LLVM (7 release)
 
+To add the apt repo, find the appropriate one for your Ubuntu version below and append it to `/etc/apt/sources.list`
+```
+Trusty (14.04) - Last update : Tue, 26 Feb 2019 05:42:37 UTC / Revision: 354792
+deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main
+deb-src http://apt.llvm.org/trusty/ llvm-toolchain-trusty main
+# 7 
+deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-7 main
+deb-src http://apt.llvm.org/trusty/ llvm-toolchain-trusty-7 main
+# 8 
+deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-8 main
+deb-src http://apt.llvm.org/trusty/ llvm-toolchain-trusty-8 main
+
+# Also add the following for the appropriate libstdc++
+deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu trusty main
+Xenial (16.04) - Last update : Thu, 14 Mar 2019 00:31:13 UTC / Revision: 356003
+deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main
+deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial main
+# 7
+deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-7 main
+deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-7 main
+# 8
+deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-8 main
+deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-8 main
+Bionic (18.04) - Last update : Thu, 14 Mar 2019 03:23:34 UTC / Revision: 356096
+# i386 not available
+deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic main
+deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic main
+# 7
+deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-7 main
+deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic-7 main
+# 8
+deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-8 main
+deb-src http://apt.llvm.org/bionic/ llvm-toolchain-bionic-8 main
+Cosmic (18.10) - Last update : Wed, 13 Mar 2019 12:53:46 UTC / Revision: 356030
+# i386 not available
+deb http://apt.llvm.org/cosmic/ llvm-toolchain-cosmic main
+deb-src http://apt.llvm.org/cosmic/ llvm-toolchain-cosmic main
+# 7
+deb http://apt.llvm.org/cosmic/ llvm-toolchain-cosmic-7 main
+deb-src http://apt.llvm.org/cosmic/ llvm-toolchain-cosmic-7 main
+# 8
+deb http://apt.llvm.org/cosmic/ llvm-toolchain-cosmic-8 main
+deb-src http://apt.llvm.org/cosmic/ llvm-toolchain-cosmic-8 main
+Disco (19.04) - Last update : Wed, 13 Mar 2019 12:42:07 UTC / Revision: 356006
+# i386 not available
+deb http://apt.llvm.org/disco/ llvm-toolchain-disco main
+deb-src http://apt.llvm.org/disco/ llvm-toolchain-disco main
+# 7
+deb http://apt.llvm.org/disco/ llvm-toolchain-disco-7 main
+deb-src http://apt.llvm.org/disco/ llvm-toolchain-disco-7 main
+# 8
+deb http://apt.llvm.org/disco/ llvm-toolchain-disco-8 main
+deb-src http://apt.llvm.org/disco/ llvm-toolchain-disco-8 main
+```
+
+Update apt packages list:
+```shell
+$ sudo apt update
+```
+
 To retrieve the archive signature:
 ```shell
 $ wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
