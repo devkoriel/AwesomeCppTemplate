@@ -14,9 +14,6 @@ set(OUTPUT_BINARY "md5")
 set(SRC_FILES src/main.cpp)
 # Example: set(SRC_FILES <SOURCE FILES>)
 
-set(CMAKE_C_COMPILER clang)
-set(CMAKE_CXX_COMPILER clang++)
-
 include(functions.cmake)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
