@@ -31,16 +31,14 @@ INCLUDE_DIRECTORIES(include/libfoo)
 ADD_EXECUTABLE(${OUTPUT_BINARY} ${SRC_FILES})
 TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CONAN_LIBS})
 
+# OS specific instructions.
 IF(APPLE)
-    # macOS only headers or libraries.
-    # FIND_LIBRARY(CoreFoundation CoreFoundation)
-    # FIND_LIBRARY(IOKit IOKit)
-    # TARGET_LINK_LIBRARIES(${OUTPUT_BINARY} ${CoreFoundation} ${IOKit}) 
 ELSEIF(WIN32)
-    # Windows only headers or libraries.
+    # Windows developer environment specific instructions.
+    IF(MINGW)
+    ELSEIF(MSYS)
+    ELSEIF(CYGWIN)
+    ENDIF()
 ELSEIF(UNIX)
-    # UNIX OS only headers or libraries.
-    SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 ELSE()
-    MESSAGE(FATAL_ERROR "Your operating system is not compatible. CMake will exit.")
 ENDIF()
