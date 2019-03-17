@@ -4,7 +4,7 @@ class PocoTimerConan(ConanFile):
    settings = "os", "compiler", "build_type", "arch"
    requires = "Poco/1.9.0@pocoproject/stable"
    generators = "cmake", "gcc", "txt"
-   default_options = {"Poco:shared": True, "OpenSSL:shared": True}
+   default_options = {"Poco:shared": False, "OpenSSL:shared": False}
 
    def imports(self):
       self.copy("*.dll", dst="bin", src="bin") # From bin to bin
