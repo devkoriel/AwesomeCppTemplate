@@ -2,6 +2,9 @@
 
 > This project is in its infancy and I plan to continue to improve. It is designed to use C++17. I hope people be able to create the desired C++ project structure with Batch or Shell Script later. and also very welcome to the contribution.
 
+There a lot of useful opinions that I have to look at in Reddit thread for this project.
+The link is [here](https://www.reddit.com/r/cpp/comments/b1u9fp/i_created_c17_cmake_conan_ninja_project_template/).
+
 ## Suggestion of C++ programming environment
 
 I suggest using as much cross-platform open-source software as possible:
